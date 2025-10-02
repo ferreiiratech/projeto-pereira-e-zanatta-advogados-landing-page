@@ -26,7 +26,7 @@ export function NavBar() {
               <img
                 src="/logo.png"
                 alt="Pereira & Zanatta Logo"
-                className="w-8 h-8 object-contain"
+                className="w-10 h-10 object-contain mt-2"
               />
             </div>
 
@@ -55,7 +55,7 @@ export function NavBar() {
             className="md:hidden menu-button"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
           </Button>
         </div>
 
