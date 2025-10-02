@@ -1,8 +1,28 @@
 @import "tailwindcss";
 
 :root {
-    --font-sans: 'Inter', sans-serif;
-    --font-serif: 'Merriweather', serif;
-    background-color: black;
-    color: white;
+  background-color: black;
+  --primary: white;
+
+  /* Gold colors */
+  /* --gold-50: #fffbeb; */
+  --gold-100: #fef3c7;
+  --gold-500: #f59e0b;
+  --gold-600: #d97706;
+  /* --gold-200: #fde68a;
+  --gold-300: #fcd34d;
+  --gold-400: #fbbf24;
+  
+  --gold-700: #b45309;
+  --gold-800: #92400e;
+  --gold-900: #78350f;
+  --gold-950: #451a03; */
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-gold-100 {
+  color: var(--gold-100);
 }

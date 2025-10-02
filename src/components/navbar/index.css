@@ -1,0 +1,158 @@
+/* Animação de borda que cresce do meio para as laterais nos links */
+.nav-link {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -0.2rem;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(135deg, var(--gold-500) 0%, var(--gold-600) 100%);
+  transform: translateX(-50%);
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  color: var(--gold-500);
+}
+
+@media (max-width: 768px) {
+  .nav-link::after {
+    height: 1px;
+    bottom: -0.5rem;
+  }
+}
+
+.nav-link-thick::after {
+  height: 1px;
+  border-radius: 3px;
+}
+
+.nav-link-fast {
+  transition: all 0.2s ease;
+}
+
+.nav-link-fast::after {
+  transition: width 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+
+/* Animação do botão do menu */
+.menu-button {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-button:hover {
+  transform: scale(1.1);
+}
+
+.menu-button:active {
+  transform: scale(0.95);
+}
+
+/* Container principal do menu mobile */
+.mobile-menu-container {
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estado inicial - menu fechado */
+.mobile-menu-enter {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Estado final - menu aberto */
+.mobile-menu-enter-active {
+  max-height: 400px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animação dos itens individuais - aparecem de cima para baixo */
+.mobile-menu-item {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Quando o menu está aberto, aplica as animações */
+.mobile-menu-open .mobile-menu-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays escalonados para criar efeito cascata de cima para baixo */
+.mobile-menu-open .mobile-menu-item:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.mobile-menu-open .mobile-menu-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.mobile-menu-open .mobile-menu-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.mobile-menu-open .mobile-menu-item:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.mobile-menu-open .mobile-menu-item:nth-child(5) {
+  transition-delay: 0.5s; /* Para o botão "Agende uma consulta" */
+}
+
+/* Keyframes para animações mais fluidas */
+@keyframes slideDownFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideUpFadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+}
+
+/* Classes para animações mais avançadas */
+.animate-slide-down {
+  animation: slideDownFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUpFadeOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Estilo adicional para o container do menu mobile */
+.mobile-menu-backdrop {
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 0 0 12px 12px;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+}
