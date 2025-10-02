@@ -1,24 +1,48 @@
 @import "tailwindcss";
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
 
 :root {
   background-color: black;
+  overflow: overlay;
+  background-image: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.8) 100%
+    ),
+    url("/background-texture.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: "Montserrat", sans-serif;
+
   --primary: white;
+  --color-background: #000000;
 
   /* Gold colors */
   /* --gold-50: #fffbeb; */
   --gold-100: #fef3c7;
   --gold-500: #f59e0b;
   --gold-600: #d97706;
+  --gold-700: #b45309;
   /* --gold-200: #fde68a;
   --gold-300: #fcd34d;
   --gold-400: #fbbf24;
   
-  --gold-700: #b45309;
+
   --gold-800: #92400e;
   --gold-900: #78350f;
   --gold-950: #451a03; */
+
+  --breakpoint-xxxs: 320px;
+  --breakpoint-xxs: 375px;
+  --breakpoint-xs: 425px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
 .font-montserrat {
@@ -26,10 +50,29 @@
   font-display: swap;
 }
 
+/* Cores dos textos */
+
 .text-primary {
   color: var(--primary);
 }
 
 .text-gold-100 {
   color: var(--gold-100);
+}
+
+/* Cores de fundo */
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-gold-100 {
+  background-color: var(--gold-100);
+}
+
+.bg-gold-500 {
+  background-color: var(--gold-500);
+}
+
+.bg-gold-600 {
+  background-color: var(--gold-600);
 }

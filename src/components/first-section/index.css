@@ -1,0 +1,118 @@
+/* Botão CTA com transição suave de gradiente */
+.cta-button {
+  position: relative;
+  background: linear-gradient(180deg, var(--gold-500) 0%, var(--gold-700) 100%);
+  color: #000000;
+  display: inline-block;
+  font-weight: bolder;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Animação sutil de gradiente */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Gradiente de hover como pseudo-elemento */
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    var(--gold-400) 0%,
+    var(--gold-600) 30%,
+    var(--gold-500) 60%,
+    var(--gold-700) 100%
+  );
+  background-size: 400% 400%;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  animation: gradientWave 2s ease infinite;
+}
+
+@keyframes gradientWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Texto deve ficar acima do pseudo-elemento */
+.cta-button span {
+  position: relative;
+  z-index: 2;
+}
+
+/* Estados de hover e interação */
+.cta-button:hover::before {
+  opacity: 1;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 25px -5px rgba(245, 158, 11, 0.4),
+    0 0 20px rgba(245, 158, 11, 0.2);
+  animation-play-state: paused;
+}
+
+.cta-button:active {
+  transform: translateY(-1px) scale(1.01);
+  transition: transform 1s ease;
+}
+
+/* Efeito shimmer incorporado no botão */
+.cta-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shimmer 5s infinite;
+  animation-delay: 0.5s;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -150%;
+  }
+  50% {
+    left: 150%;
+  }
+  100% {
+    left: 150%;
+  }
+}

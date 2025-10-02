@@ -14,15 +14,15 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseClasses =
-    "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background";
+    "inline-flex items-center justify-center rounded-md text-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background";
 
   const variantClasses = {
-    default: "bg-primary text-primary-foreground hover:bg-primary/90",
+    default: "",
     ghost: "hover:bg-accent hover:text-accent-foreground",
   };
 
   const sizeClasses = {
-    default: "h-10 py-2 px-4",
+    default: "h-12 py-2 px-4 cursor-pointer",
     icon: "h-10 w-10",
   };
 
