@@ -22,7 +22,7 @@
 }
 
 .font-montserrat {
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont !important;
+  font-family: "Montserrat", "sans-serif" !important;
   font-display: swap;
 }
 
