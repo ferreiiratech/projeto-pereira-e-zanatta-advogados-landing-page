@@ -72,7 +72,7 @@ export function NavBar() {
               <a
                 key={item.href}
                 href={item.href}
-                className="mobile-menu-item nav-link text-sm font-medium tracking-wide py-2 px-2 rounded-md hover:bg-gold-500/10 transition-colors"
+                className="mobile-menu-item text-sm font-medium tracking-wide py-2 px-2 rounded-md hover:bg-gold-500/10 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
