@@ -38,8 +38,8 @@ export function FirstSection() {
               window.open(whatsappLink, "_blank", "noopener,noreferrer")
             }
           >
-            <span className="flex items-center justify-center align-middle text-xs sm:text-2xl">
-              AGENDAR UMA CONSULTA
+            <span className="flex items-center justify-center leading-none text-xs sm:text-2xl">
+              <p>AGENDAR UMA CONSULTA</p>
               <img
                 src="/icons/whatsapp-icon.webp"
                 alt="WhatsApp Icon"
