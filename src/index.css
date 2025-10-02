@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
 :root {
   background-color: black;
   --primary: white;
@@ -17,6 +19,11 @@
   --gold-800: #92400e;
   --gold-900: #78350f;
   --gold-950: #451a03; */
+}
+
+.font-montserrat {
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont !important;
+  font-display: swap;
 }
 
 .text-primary {
