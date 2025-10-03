@@ -103,8 +103,8 @@ export function NavBar() {
                   loading="eager"
                 />
               </div>
-              <span className="text-2xl font-semibold hidden sm:block">
-                Advogados
+              <span className="text-2xl font-semibold hidden lg:block">
+                Pereira & Zanatta Advogados
               </span>
             </div>
           </a>
