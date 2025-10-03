@@ -39,7 +39,7 @@ export function FirstSection() {
             }
           >
             <span className="flex items-center justify-center leading-none text-xs sm:text-2xl">
-              <p>AGENDAR UMA CONSULTA</p>
+              <p>AGENDE UMA CONSULTA</p>
               <img
                 src="/icons/whatsapp-icon.webp"
                 alt="WhatsApp Icon"
