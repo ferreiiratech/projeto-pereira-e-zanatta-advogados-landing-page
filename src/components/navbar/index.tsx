@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { Menu, X } from "lucide-react";
 import "./index.css";
@@ -10,31 +10,63 @@ export function NavBar() {
 
   const navItems = [
     { href: "#inicio", label: "INÍCIO", ariaLabel: "Ir para o início" },
-    { href: "#quem-somos", label: "QUEM SOMOS", ariaLabel: "Ir para quem somos" },
-    { href: "#areas-atuacao", label: "ÁREAS DE ATUAÇÃO", ariaLabel: "Ir para áreas de atuação" },
+    {
+      href: "#quem-somos",
+      label: "QUEM SOMOS",
+      ariaLabel: "Ir para quem somos",
+    },
+    {
+      href: "#areas-atuacao",
+      label: "ÁREAS DE ATUAÇÃO",
+      ariaLabel: "Ir para áreas de atuação",
+    },
     { href: "#contato", label: "CONTATO", ariaLabel: "Ir para contato" },
   ];
+
+  // Função para navegação suave
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+
+    const targetId = href.substring(1); // Remove o #
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      // Offset para compensar a altura do navbar fixo (64px = h-16)
+      const navbarHeight = 64;
+      const targetPosition = targetElement.offsetTop - navbarHeight;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
+
+    // Fechar menu mobile se estiver aberto
+    setIsOpen(false);
+  };
 
   return (
     // border-b-1 border-border
     <nav className="text-gold-100 font-montserrat fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md">
       <div className="container mx-auto px-8">
         <div className="flex items-center justify-between h-16">
-
           {/* Logo */}
           <a href="/">
             <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 rounded flex items-center justify-center">
-                  <img
-                    src="/logo.webp"
-                    alt="Pereira & Zanatta Logo"
-                    className="w-10 h-10 object-contain mt-2"
-                    loading="eager"
-                  />
-                </div>
-                <span className="text-2xl font-semibold hidden sm:block">
-                  Advogados
-                </span>
+              <div className="w-8 h-8 rounded flex items-center justify-center">
+                <img
+                  src="/logo.webp"
+                  alt="Pereira & Zanatta Logo"
+                  className="w-10 h-10 object-contain mt-2"
+                  loading="eager"
+                />
+              </div>
+              <span className="text-2xl font-semibold hidden sm:block">
+                Advogados
+              </span>
             </div>
           </a>
 
@@ -46,6 +78,7 @@ export function NavBar() {
                 href={item.href}
                 className="nav-link text-sm font-medium tracking-wide"
                 aria-label={item.ariaLabel}
+                onClick={(e) => handleSmoothScroll(e, item.href)}
               >
                 {item.label}
               </a>
@@ -78,7 +111,7 @@ export function NavBar() {
                 href={item.href}
                 aria-label={item.ariaLabel}
                 className="mobile-menu-item text-sm font-medium tracking-wide py-2 px-2 rounded-md hover:bg-gold-500/10 transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleSmoothScroll(e, item.href)}
               >
                 {item.label}
               </a>

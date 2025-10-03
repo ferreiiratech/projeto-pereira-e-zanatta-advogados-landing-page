@@ -23,8 +23,8 @@ export function Footer() {
           </div>
 
           <p className="text-muted-foreground text-md text-center md:text-right">
-            &copy; {new Date().getFullYear()} Pereira & Zanatta Advogados. Todos
-            os direitos reservados.
+            &copy; {new Date().getFullYear()} Pereira & Zanatta Advogados.{" "}
+            <br /> Todos os direitos reservados.
             <br />
             Defendendo seus direitos com ética e excelência.
           </p>

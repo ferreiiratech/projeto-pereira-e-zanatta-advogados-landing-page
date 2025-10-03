@@ -6,6 +6,18 @@
   cursor: pointer;
 }
 
+/* Smooth scroll para toda a página */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fallback para navegadores que não suportam scroll-behavior */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 .nav-link::after {
   content: "";
   position: absolute;
@@ -47,7 +59,6 @@
 .nav-link-fast::after {
   transition: width 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-
 
 /* Animação do botão do menu */
 .menu-button {
