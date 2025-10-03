@@ -72,13 +72,13 @@ export function AnnouncementModal({ isOpen, onClose }: AnnouncementModalProps) {
               Criminosos estão se passando por advogados, principalmente no
               <strong className="text-gold-200"> WhatsApp</strong>, utilizando
               nomes de escritórios conhecidos. Assim, conseguem informações de
-              processos e entram em contato, alegando que valores foram
+              processos e entram em contato alegando que valores foram
               liberados ou enviando documentos para pedir dinheiro.
             </p>
 
             <p className="mb-4">
               Se você receber algum contato suspeito, mesmo que pareça real,
-              <strong> considere como tentativa de fraude</strong>.
+              <strong> considere-o como tentativa de fraude</strong>.
             </p>
 
             <div className="warning-box">

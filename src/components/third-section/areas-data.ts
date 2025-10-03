@@ -22,7 +22,7 @@ export const areas = [
       "Indenizações por acidente de trabalho ou doença ocupacional",
       "Assédio moral ou sexual no ambiente de trabalho",
       "Reintegração de empregado estável",
-      "Defesa de empresas e trabalhadores em ações trabalhistas",
+      "Defesa de empresas e empregadores em ações trabalhistas",
     ],
   },
   {
@@ -40,7 +40,7 @@ export const areas = [
   {
     title: "Direito Bancário e do Consumidor",
     items: [
-      "Ações contra juros abusivos",
+      "Ações revisionais de juros abusivos",
       "Superendividamento e revisão de contratos bancários",
       "Descontos indevidos em conta corrente ou aposentadoria",
       "Cartões de crédito, empréstimos e financiamentos",
