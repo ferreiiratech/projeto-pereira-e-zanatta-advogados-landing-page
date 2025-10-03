@@ -1,4 +1,5 @@
 import { Card, CardContent } from "../ui/card";
+import { TitleSection } from "../ui/title-section";
 import "./index.css";
 
 export function SecondSection() {
@@ -31,16 +32,10 @@ export function SecondSection() {
     <section id="quem-somos" className="bg-black">
       {/* min-h-[80vh] sm:min-h-screen */}
       <div className="text-gold-100 font-montserrat flex flex-col items-center justify-center text-center px-8 py-40">
-        <div className="bg-opacity-50 p-8 rounded-lg">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 line-title-section">
-            QUEM SOMOS
-          </h2>
-
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto text-balance mb-8">
-            Nossa equipe é formada por advogados experientes e comprometidos com
-            a excelência no atendimento jurídico.
-          </p>
-        </div>
+        <TitleSection
+          title="QUEM SOMOS"
+          description="Nossa equipe é formada por advogados experientes e comprometidos com a excelência no atendimento jurídico."
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {lawyers.map((lawyer, index) => (
