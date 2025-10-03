@@ -1,7 +1,6 @@
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { Card, CardContent } from "../ui/card";
 import "./index.css";
-import { CtaButton } from "../ui/cta-button";
 import { TitleSection } from "../ui/title-section";
 
 export function FourthSection() {
