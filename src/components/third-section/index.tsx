@@ -11,7 +11,7 @@ export function ThirdSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {areas.map((area, index) => (
-            <Card key={index} className="area-card">
+            <Card key={index} className="area-card cursor-default">
               <CardContent>
                 <div>
                   <h3>{area.title}</h3>
