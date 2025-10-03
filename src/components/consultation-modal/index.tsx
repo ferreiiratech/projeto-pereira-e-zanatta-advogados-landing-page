@@ -11,7 +11,7 @@ interface ConsultationModalProps {
 
 export function ConsultationModal({ isOpen, onClose }: ConsultationModalProps) {
   const message =
-    "Olá, vim pelo site do escritório Pereira & Zanatta Advogados e gostaria de agendar uma consulta.";
+    "Olá, vim pelo site do escritório Pereira & Zanatta Advogados e gostaria de agendar um atendimento.";
   const phoneNumber = "+5516993443384";
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
     message
