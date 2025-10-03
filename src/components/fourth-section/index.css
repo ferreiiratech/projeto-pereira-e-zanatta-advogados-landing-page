@@ -1,0 +1,91 @@
+/* Card de endereço com imagem de fundo */
+.address-card {
+  position: relative;
+  background-image: url("/mapa.webp");
+  background-size: cover;
+  background-position: left center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.address-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 40%,
+    rgba(0, 0, 0, 0.9) 50%,
+    rgba(0, 0, 0, 0.8) 60%,
+    rgba(0, 0, 0, 0.4) 100%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
+.address-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Remove imagem de fundo em telas menores que sm (640px) */
+@media (max-width: 500px) {
+  .address-card {
+    background-image: none;
+  }
+
+  .address-card::before {
+    display: none;
+  }
+}
+
+/* Responsividade para telas muito pequenas */
+@media (max-width: 396px) {
+  .contact-card {
+    padding: 1rem !important;
+  }
+
+  .contact-content {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+  }
+
+  .contact-text {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .contact-value {
+    word-break: break-all;
+    overflow-wrap: break-word;
+    font-size: 0.875rem !important;
+    line-height: 1.25rem !important;
+  }
+
+  .contact-label {
+    font-size: 0.75rem !important;
+  }
+
+  /* Específico para email e Instagram que têm textos longos */
+  .contact-value[href*="mailto"],
+  .contact-value[href*="instagram"] {
+    word-break: break-all;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+}
+
+/* Para telas entre 396px e 480px */
+@media (min-width: 397px) and (max-width: 480px) {
+  .contact-value {
+    font-size: 0.9rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
