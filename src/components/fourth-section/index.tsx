@@ -101,11 +101,6 @@ export function FourthSection() {
               </CardContent>
             </Card>
           </a>
-
-          {/* CTA */}
-          <div className="text-center mt-12">
-            <CtaButton />
-          </div>
         </div>
       </div>
     </section>
