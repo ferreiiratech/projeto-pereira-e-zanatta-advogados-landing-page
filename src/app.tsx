@@ -7,10 +7,13 @@ import { ThirdSection } from "./components/third-section";
 import { FourthSection } from "./components/fourth-section";
 import { Footer } from "./components/footer";
 import { ConsultationModal } from "./components/consultation-modal";
+import { AnnouncementModal } from "./components/announcement-modal";
 import { useScrollDetection } from "./hooks/useScrollDetection";
+import { useFirstVisit } from "./hooks/useFirstVisit";
 
 function App(): React.ReactElement {
   const { showConsultationModal, closeModal } = useScrollDetection();
+  const { showAnnouncementModal, closeAnnouncementModal } = useFirstVisit();
 
   return (
     <>
@@ -21,8 +24,17 @@ function App(): React.ReactElement {
       <FourthSection />
       <Footer />
 
-      {/* Modal de Consulta */}
-      <ConsultationModal isOpen={showConsultationModal} onClose={closeModal} />
+      {/* Modal de Comunicado - Primeira Visita */}
+      <AnnouncementModal
+        isOpen={showAnnouncementModal}
+        onClose={closeAnnouncementModal}
+      />
+
+      {/* Modal de Consulta - Terceira Seção (só se comunicado não estiver aberto) */}
+      <ConsultationModal
+        isOpen={showConsultationModal && !showAnnouncementModal}
+        onClose={closeModal}
+      />
     </>
   );
 }

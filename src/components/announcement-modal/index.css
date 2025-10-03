@@ -1,0 +1,316 @@
+/* Modal Overlay - Bloqueia tudo */
+.announcement-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: modalFadeIn 0.4s ease-out;
+  overflow: hidden; /* Previne scroll no overlay */
+}
+
+/* Bloquear scroll globalmente quando modal estiver ativo */
+body.modal-open {
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
+}
+
+/* Modal Container */
+.announcement-modal-container {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(26, 26, 26, 0.95) 100%
+  );
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(212, 175, 55, 0.3);
+  animation: modalSlideIn 0.4s ease-out;
+  position: relative;
+}
+
+/* Close Button */
+.announcement-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  color: rgba(212, 175, 55, 0.8);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+}
+
+.announcement-close-btn:hover {
+  color: rgba(212, 175, 55, 1);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* Modal Header */
+.announcement-modal-header {
+  padding: 2rem 2rem 1rem 2rem;
+  padding-right: 4rem; /* Espaço para o botão de fechar */
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  background: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0.1) 0%,
+    rgba(212, 175, 55, 0.05) 100%
+  );
+}
+
+/* Modal Content */
+.announcement-modal-content {
+  padding: 2rem;
+}
+
+/* Text Styling */
+.announcement-text {
+  color: rgba(212, 175, 55, 0.9);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.announcement-text p {
+  margin-bottom: 1rem;
+}
+
+/* Warning Box */
+.warning-box {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+/* Contact Info */
+.contact-info {
+  background: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(212, 175, 55, 0.9);
+  font-size: 0.9rem;
+}
+
+/* Signature */
+.signature {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Animations */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .announcement-modal-overlay {
+    padding: 1rem;
+  }
+
+  .announcement-modal-container {
+    margin: 0;
+    max-width: 100%;
+    width: calc(100vw - 2rem);
+    border-radius: 12px;
+    max-height: 90vh;
+  }
+
+  .announcement-modal-header {
+    padding: 1.25rem 1.25rem 1rem 1.25rem;
+    padding-right: 3.5rem;
+  }
+
+  .announcement-modal-header h2 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .announcement-modal-header p {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .announcement-modal-content {
+    padding: 1.25rem;
+  }
+
+  .announcement-modal-content h3 {
+    font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+  }
+
+  .announcement-close-btn {
+    top: 1rem;
+    right: 1rem;
+    width: 2.25rem !important;
+    height: 2.25rem !important;
+  }
+
+  .announcement-text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .warning-box {
+    padding: 0.875rem;
+    margin: 1.25rem 0;
+  }
+
+  .contact-info {
+    padding: 1.125rem;
+    margin: 1.25rem 0;
+  }
+
+  .contact-item {
+    font-size: 0.85rem;
+  }
+}
+
+/* Para telas muito pequenas (< 480px) */
+@media (max-width: 480px) {
+  .announcement-modal-overlay {
+    padding: 0.75rem;
+  }
+
+  .announcement-modal-container {
+    width: calc(100vw - 1.5rem);
+    max-height: 92vh;
+  }
+
+  .announcement-modal-header {
+    padding: 1rem 1rem 0.75rem 1rem;
+    padding-right: 3rem;
+  }
+
+  .announcement-modal-header h2 {
+    font-size: 1.25rem;
+  }
+
+  .announcement-modal-header p {
+    font-size: 0.7rem;
+  }
+
+  .announcement-modal-content {
+    padding: 1rem;
+  }
+
+  .announcement-close-btn {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+
+  .announcement-text {
+    font-size: 0.8rem;
+  }
+
+  .warning-box {
+    padding: 0.75rem;
+  }
+
+  .warning-box p {
+    font-size: 0.75rem;
+  }
+
+  .contact-info {
+    padding: 0.875rem;
+  }
+
+  .contact-item {
+    font-size: 0.75rem;
+  }
+}
+
+/* Landscape mobile */
+@media (max-width: 640px) and (max-height: 500px) and (orientation: landscape) {
+  .announcement-modal-container {
+    max-height: 90vh;
+  }
+
+  .announcement-modal-header {
+    padding: 0.75rem 0.75rem 0.5rem 0.75rem;
+    padding-right: 2.5rem;
+  }
+
+  .announcement-modal-content {
+    padding: 0.75rem;
+  }
+
+  .announcement-text {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .warning-box,
+  .contact-info {
+    margin: 0.75rem 0;
+    padding: 0.75rem;
+  }
+} /* Scroll personalizado */
+.announcement-modal-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.announcement-modal-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+.announcement-modal-container::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.5);
+  border-radius: 3px;
+}
+
+.announcement-modal-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.7);
+}
