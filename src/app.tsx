@@ -5,6 +5,7 @@ import { FirstSection } from "./components/first-section";
 import { SecondSection } from "./components/second-section";
 import { ThirdSection } from "./components/third-section";
 import { FourthSection } from "./components/fourth-section";
+import { Footer } from "./components/footer";
 
 function App(): React.ReactElement {
   return (
@@ -14,6 +15,7 @@ function App(): React.ReactElement {
       <SecondSection />
       <ThirdSection />
       <FourthSection />
+      <Footer />
     </>
   );
 }
