@@ -1,0 +1,52 @@
+.area-card {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.08),
+    rgba(212, 175, 55, 0.02)
+  );
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 15px;
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.area-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+  border-color: #d4af37;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.15),
+    rgba(212, 175, 55, 0.05)
+  );
+}
+
+.area-card h3 {
+  color: #d4af37;
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.area-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.area-card li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ddd;
+}
+
+.area-card li::before {
+  content: "▸";
+  color: #d4af37;
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+}
