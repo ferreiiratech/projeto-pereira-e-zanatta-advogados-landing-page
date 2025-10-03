@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "../ui/button";
 import { Menu, X } from "lucide-react";
 import "./index.css";
 
 export function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [navbarTransform, setNavbarTransform] = useState(0);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const navItems = [
     { href: "#inicio", label: "INÍCIO", ariaLabel: "Ir para o início" },
@@ -22,6 +24,38 @@ export function NavBar() {
     },
     { href: "#contato", label: "CONTATO", ariaLabel: "Ir para contato" },
   ];
+
+  // Hook para detectar direção do scroll e mover navbar
+  useEffect(() => {
+    const controlNavbar = () => {
+      const currentScrollY = window.scrollY;
+      const scrollDifference = currentScrollY - lastScrollY;
+
+      // Se estiver no topo da página, resetar posição
+      if (currentScrollY < 10) {
+        setNavbarTransform(0);
+      }
+      // Se scrollando para baixo, mover navbar para cima junto com o scroll
+      else if (scrollDifference > 0 && currentScrollY > 64) {
+        const newTransform = Math.min(navbarTransform + scrollDifference, 64);
+        setNavbarTransform(newTransform);
+        setIsOpen(false); // Fechar menu mobile quando scrolling down
+      }
+      // Se scrollando para cima, trazer navbar de volta
+      else if (scrollDifference < 0) {
+        const newTransform = Math.max(navbarTransform + scrollDifference, 0);
+        setNavbarTransform(newTransform);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", controlNavbar);
+
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [lastScrollY, navbarTransform]);
 
   // Função para navegação suave
   const handleSmoothScroll = (
@@ -50,7 +84,12 @@ export function NavBar() {
 
   return (
     // border-b-1 border-border
-    <nav className="text-gold-100 font-montserrat fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md">
+    <nav
+      className="text-gold-100 font-montserrat fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md transition-transform duration-300 ease-out"
+      style={{
+        transform: `translateY(-${navbarTransform}px)`,
+      }}
+    >
       <div className="container mx-auto px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
